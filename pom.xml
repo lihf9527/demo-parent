@@ -17,7 +17,11 @@
     </parent>
 
     <modules>
+        <module>demo-jpa</module>
         <module>demo-mongo</module>
+        <module>demo-mybatis</module>
+        <module>demo-querydsl-jpa</module>
+        <module>demo-querydsl-mongo</module>
         <module>demo-redis</module>
     </modules>
 
