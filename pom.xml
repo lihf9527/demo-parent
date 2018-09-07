@@ -23,6 +23,7 @@
         <module>demo-querydsl-jpa</module>
         <module>demo-querydsl-mongo</module>
         <module>demo-redis</module>
+        <module>demo-util</module>
     </modules>
 
     <properties>
