@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.model.book.Book;
+import com.example.model.Book;
 import com.example.util.PrintUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +32,7 @@ public class BookRepositoryTest {
 
     @Test
     public void updateTest() {
-        Book book = bookRepository.findById("8a82819565b2b5cc0165b2b5d00e0000").get();
+        Book book = bookRepository.findById("8a82819565b2b5cc0165b2b5d00e0000").orElseGet(Book::new);
         System.out.println(book);
         book.setAuthor("jimmy");
         bookRepository.save(book);

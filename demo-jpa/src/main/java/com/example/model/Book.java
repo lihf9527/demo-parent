@@ -1,7 +1,8 @@
-package com.example.model.book;
+package com.example.model;
 
-import com.example.model.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
@@ -10,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 @Entity
 public class Book extends BaseEntity {
     /**
@@ -44,15 +47,4 @@ public class Book extends BaseEntity {
      */
     @Column(nullable = false)
     private String press;
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", price=" + price +
-                ", press='" + press + '\'' +
-                "} " + super.toString();
-    }
 }
