@@ -40,8 +40,16 @@ public class BookRepositoryTest {
     }
 
     @Test
+    public void findNamesTest() {
+        bookRepository.findNames().forEach(PrintUtils::println);
+    }
+
+    @Test
     public void findByIdTest() {
         Book book = bookRepository.findById("8a82819565b2b5cc0165b2b5d00e0000").orElse(null);
+        System.out.println(book);
+
+        book = bookRepository.findBookById("8a8284b365cbff7e0165cbff82db0000");
         System.out.println(book);
     }
 
