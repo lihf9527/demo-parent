@@ -1,4 +1,4 @@
-package com.example.demomongo;
+package com.example;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
