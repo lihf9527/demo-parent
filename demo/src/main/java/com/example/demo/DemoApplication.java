@@ -1,12 +1,12 @@
-package com.example.demoredis;
+package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoRedisApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoRedisApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 }

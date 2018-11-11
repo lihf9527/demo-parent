@@ -1,0 +1,5 @@
+spring:
+  redis:
+    host: 192.168.150.130
+
+names: Tom,Jerry,Jack

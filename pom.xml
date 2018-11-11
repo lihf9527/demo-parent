@@ -17,7 +17,7 @@
     </parent>
 
     <modules>
-        <module>demo-util</module>
+        <module>demo</module>
         <module>demo-jpa</module>
         <module>demo-mongo</module>
         <module>demo-redis</module>

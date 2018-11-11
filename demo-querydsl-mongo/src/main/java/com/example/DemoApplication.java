@@ -1,12 +1,12 @@
-package com.example.demoquerydslmongo;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoQuerydslMongoApplication {
+public class DemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoQuerydslMongoApplication.class, args);
+        SpringApplication.run(DemoApplication.class, args);
     }
 }
