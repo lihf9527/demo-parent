@@ -58,7 +58,7 @@
                         </goals>
                         <configuration>
                             <outputDirectory>target/generated-sources/java</outputDirectory>
-                            <processor>com.querydsl.apt.morphia.MorphiaAnnotationProcessor</processor>
+                            <processor>org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor</processor>
                         </configuration>
                     </execution>
                 </executions>
