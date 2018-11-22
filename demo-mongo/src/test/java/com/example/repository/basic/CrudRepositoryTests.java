@@ -1,6 +1,5 @@
 package com.example.repository.basic;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +12,6 @@ public class CrudRepositoryTests {
     @Test
     public void saveTest() {
 //        userRepository.save(null);
-        Assert.assertEquals(1, 1);
     }
 
     @Test
