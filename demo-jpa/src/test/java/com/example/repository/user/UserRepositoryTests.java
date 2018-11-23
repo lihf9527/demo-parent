@@ -1,4 +1,4 @@
-package com.example.repository.basic;
+package com.example.repository.user;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

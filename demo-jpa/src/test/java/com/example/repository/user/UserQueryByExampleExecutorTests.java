@@ -1,8 +1,8 @@
-package com.example.repository.basic;
+package com.example.repository.user;
 
 import org.junit.Test;
 
-public class QueryByExampleExecutorTests {
+public class UserQueryByExampleExecutorTests {
 
     @Test
     public void findOneTest() {
