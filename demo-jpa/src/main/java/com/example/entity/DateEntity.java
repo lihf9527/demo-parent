@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Data
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class BaseEntity {
+public class DateEntity {
     /**
      * 创建时间
      */
