@@ -16,9 +16,14 @@ public class UserRepositoryTests {
 
     @Test
     @Transactional
-    public void test() {
+    public void saveTest() {
         userRepository.saveAll(UserFactory.getUsers());
-
         userRepository.findAll().forEach(System.out::println);
+    }
+
+    @Test
+    @Transactional
+    public void deleteTest() {
+        userRepository.deleteAll();
     }
 }
