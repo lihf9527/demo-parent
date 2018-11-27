@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -15,14 +14,12 @@ public class UserRepositoryTests {
     private UserRepository userRepository;
 
     @Test
-    @Transactional
     public void saveTest() {
         userRepository.saveAll(UserFactory.getUsers());
         userRepository.findAll().forEach(System.out::println);
     }
 
     @Test
-    @Transactional
     public void deleteTest() {
         userRepository.deleteAll();
     }
