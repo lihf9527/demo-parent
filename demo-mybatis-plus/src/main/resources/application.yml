@@ -4,7 +4,7 @@ spring:
     url: jdbc:mysql://localhost/demo?useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
-    initialization-mode: always
+    initialization-mode: never
     platform: mysql
     schema: db/schema/schema-${spring.datasource.platform}.sql
     data: db/data/data-${spring.datasource.platform}.sql
