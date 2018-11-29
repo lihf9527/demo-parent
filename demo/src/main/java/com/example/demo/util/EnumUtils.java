@@ -2,8 +2,11 @@ package com.example.demo.util;
 
 import com.example.demo.enums.EnumMsg;
 import com.example.demo.enums.empty.EmptyEnum;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -11,22 +14,23 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EnumUtils {
-    private final static ConcurrentMap<String, Map<?, EnumMsg>> ENUM_MAP = new ConcurrentHashMap<>();
+    private static final ConcurrentMap<String, Map<?, EnumMsg>> ENUM_MAP = new ConcurrentHashMap<>();
 
-    public static <E extends EnumMsg> List<E> getAllEnums(Class<E> enumClass) {
-        return getEnumMsgMap(enumClass).values().stream().map(enumMsg -> (E) enumMsg).collect(Collectors.toList());
+    public static <E extends EnumMsg> List<EnumMsg> getEnums(Class<E> enumClass) {
+        return new ArrayList<>(getEnumMsgMap(enumClass).values());
     }
 
     public static <E extends EnumMsg<V>, V> String getEnumName(V value, Class<E> enumClass) {
-        return toEnumMsg(value, enumClass).getName();
+        return toEnum(value, enumClass).getName();
     }
 
     public static <E extends EnumMsg<V>, V> boolean isValid(V value, Class<E> enumClass) {
-        return getEnumMsgMap(enumClass).containsKey(value);
+        return !toEnum(value, enumClass).isEmpty();
     }
 
-    public static <E extends EnumMsg<V>, V> EnumMsg toEnumMsg(V value, Class<E> enumClass) {
+    public static <E extends EnumMsg<V>, V> EnumMsg toEnum(V value, Class<E> enumClass) {
         if (value == null || enumClass == null)
             return EmptyEnum.NULL;
         EnumMsg enumMsg = getEnumMsgMap(enumClass).get(value);
