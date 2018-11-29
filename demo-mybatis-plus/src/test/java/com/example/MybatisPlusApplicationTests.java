@@ -13,4 +13,11 @@ public class MybatisPlusApplicationTests {
     public void contextLoads() {
     }
 
+    public static void main(String[] args) {
+        double num1 = 0.1;
+        double num2 = 0.2;
+        double num3 = num2 + num1;
+        System.out.println(num3);
+    }
+
 }
