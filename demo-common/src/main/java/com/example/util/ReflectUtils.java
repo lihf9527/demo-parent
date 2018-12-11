@@ -1,4 +1,4 @@
-package com.example.demo.util;
+package com.example.util;
 
 import java.lang.reflect.ParameterizedType;
 
@@ -7,15 +7,12 @@ public class ReflectUtils {
     }
 
     public static <T> T newInstance(Class<T> clazz) {
-        T instance = null;
         try {
-            instance = clazz.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+            return clazz.newInstance();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return instance;
+        return null;
     }
 
     public static <T> T newGenericInstance(Class clazz, int index) {

@@ -1,4 +1,4 @@
-package com.example.demo.enums;
+package com.example.enums;
 
 public interface EnumMsg<T> {
     T getValue();

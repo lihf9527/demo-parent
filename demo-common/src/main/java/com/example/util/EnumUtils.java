@@ -1,9 +1,7 @@
-package com.example.demo.util;
+package com.example.util;
 
-import com.example.demo.enums.EnumMsg;
-import com.example.demo.enums.empty.EmptyEnum;
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import com.example.enums.EnumMsg;
+import com.example.enums.empty.EmptyEnum;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -14,9 +12,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EnumUtils {
-    private static final ConcurrentMap<String, Map<?, EnumMsg>> ENUM_MAP = new ConcurrentHashMap<>();
+    private static final ConcurrentMap<String, Map<?, EnumMsg>> enumMap = new ConcurrentHashMap<>();
+
+    private EnumUtils() {
+    }
 
     public static <E extends EnumMsg> List<EnumMsg> getEnums(Class<E> enumClass) {
         return new ArrayList<>(getEnumMsgMap(enumClass).values());
@@ -33,13 +33,14 @@ public class EnumUtils {
     public static <E extends EnumMsg<V>, V> EnumMsg toEnum(V value, Class<E> enumClass) {
         if (value == null || enumClass == null)
             return EmptyEnum.NULL;
+
         EnumMsg enumMsg = getEnumMsgMap(enumClass).get(value);
         return enumMsg == null ? EmptyEnum.NULL : enumMsg;
     }
 
     private static <E extends EnumMsg> Map<?, EnumMsg> getEnumMsgMap(Class<E> enumClass) {
         String className = enumClass.getName();
-        Map<?, EnumMsg> enumMsgMap = ENUM_MAP.get(className);
+        Map<?, EnumMsg> enumMsgMap = enumMap.get(className);
         if (enumMsgMap != null)
             return enumMsgMap;
 
@@ -51,7 +52,7 @@ public class EnumUtils {
             enumMsgs = new EnumMsg[0];
         }
         enumMsgMap = Arrays.stream(enumMsgs).collect(Collectors.toMap(EnumMsg::getValue, enumMsg -> enumMsg));
-        ENUM_MAP.putIfAbsent(className, enumMsgMap);
+        enumMap.putIfAbsent(className, enumMsgMap);
         return enumMsgMap;
     }
 }

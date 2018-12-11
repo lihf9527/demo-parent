@@ -1,6 +1,6 @@
-package com.example.demo.enums.example;
+package com.example.enums.example;
 
-import com.example.demo.enums.EnumMsg;
+import com.example.enums.EnumMsg;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
