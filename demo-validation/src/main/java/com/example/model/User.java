@@ -1,16 +1,14 @@
 package com.example.model;
 
 import lombok.Data;
-import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.NotNull;
 
 @Data
-@Validated
 public class User {
-    @NotNull
+    @NotNull(message = "用户名不能为空")
     private String username;
 
-    @NotNull
+    @NotNull(message = "密码不能为空")
     private String password;
 }
