@@ -2,17 +2,28 @@ package com.example.controller.user;
 
 import com.example.controller.ApiController;
 import com.example.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.Validator;
 import javax.validation.constraints.Min;
 
 @Validated
 @RestController
 @RequestMapping("/api/user")
 public class UserController extends ApiController {
+
+    @Autowired
+    private Validator validator;
+
+    @GetMapping("/test")
+    public User test() {
+        System.out.println(validator);
+        return new User();
+    }
 
     @GetMapping("/{id}")
     public User user(@PathVariable @Min(value = 1, message = "最小值为1") Integer id) {

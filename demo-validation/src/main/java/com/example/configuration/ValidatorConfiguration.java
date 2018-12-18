@@ -15,8 +15,10 @@ public class ValidatorConfiguration {
     public Validator validator() {
         val validatorFactory = Validation.byProvider(HibernateValidator.class)
                 .configure()
-                .failFast(true)
+                .failFast(true)// hibernate.validator.fail_fast
                 .buildValidatorFactory();
+
+        System.out.println(validatorFactory);
 
         return validatorFactory.getValidator();
     }
