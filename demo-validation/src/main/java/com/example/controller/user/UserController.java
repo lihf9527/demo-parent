@@ -2,13 +2,11 @@ package com.example.controller.user;
 
 import com.example.controller.ApiController;
 import com.example.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.Validator;
 import javax.validation.constraints.Min;
 
 @Validated
@@ -16,13 +14,9 @@ import javax.validation.constraints.Min;
 @RequestMapping("/api/user")
 public class UserController extends ApiController {
 
-    @Autowired
-    private Validator validator;
-
-    @GetMapping("/test")
-    public User test() {
-        System.out.println(validator);
-        return new User();
+    @PostMapping("/test")
+    public User test(@Valid User user, BindingResult result) {
+        return user;
     }
 
     @GetMapping("/{id}")

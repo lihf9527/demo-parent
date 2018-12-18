@@ -9,16 +9,16 @@ import javax.validation.ConstraintViolationException;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler
-    public void handler(ConstraintViolationException e) {
+    public String handler(ConstraintViolationException e) {
         System.out.println("全局异常处理...");
         System.out.println(e.getMessage());
-        System.out.println(e.getMessage().split(": ")[1]);
-        System.out.println(e.getMessage().split(":")[1]);
-        System.out.println(e.getMessage().split(":")[1].trim());
+        return e.getMessage().split(": ")[1];
     }
 
     @ExceptionHandler
-    public void handler(Exception e) {
+    public String handler(Exception e) {
         System.out.println("其他异常...");
+        System.out.println(e.getMessage());
+        return e.getMessage();
     }
 }
