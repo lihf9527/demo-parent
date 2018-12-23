@@ -86,7 +86,7 @@ public class UserJpaRepositoryTests {
 
         Assert.assertNotEquals(0, userRepository.count());
 
-        userJpaRepository.deleteAllInBatch();// 批量删除所有, 相当于 delete from user
+        userJpaRepository.deleteAllInBatch();// 批量删除所有, 相当于 delete form user
 
         Assert.assertEquals(0, userRepository.count());
     }

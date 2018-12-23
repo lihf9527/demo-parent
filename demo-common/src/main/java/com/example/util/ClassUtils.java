@@ -2,8 +2,8 @@ package com.example.util;
 
 import java.lang.reflect.ParameterizedType;
 
-public class ReflectUtils {
-    private ReflectUtils() {
+public class ClassUtils {
+    private ClassUtils() {
     }
 
     public static <T> T newInstance(Class<T> clazz) {

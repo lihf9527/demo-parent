@@ -1,0 +1,7 @@
+swagger:
+  enabled: true
+  title: demo-swagger
+  version: 0.0.1-SNAPSHOT
+  base-package: com.example
+  base-path: /**
+  exclude-path: /error, /ops/**
