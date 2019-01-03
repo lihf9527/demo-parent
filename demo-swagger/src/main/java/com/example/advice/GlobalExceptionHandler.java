@@ -1,7 +1,7 @@
 package com.example.advice;
 
 import com.example.exception.BizException;
-import com.example.result.Result;
+import com.example.common.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

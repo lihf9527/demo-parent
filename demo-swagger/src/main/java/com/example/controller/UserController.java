@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.form.UserForm;
-import com.example.result.Result;
+import com.example.common.Result;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.validation.BindingResult;
