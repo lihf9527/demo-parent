@@ -9,6 +9,7 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 import javax.validation.ConstraintViolationException;
 
@@ -51,8 +52,13 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler
+    public Result handler(NoHandlerFoundException e) {
+        return Result.of(404, "Not Found", e.getMessage());
+    }
+
+    @ExceptionHandler
     public Result handler(Exception e) {
         String errorMsg = e + " at " + e.getStackTrace()[0];
-        return Result.failure("系统异常", errorMsg);
+        return Result.of(500, "系统异常", errorMsg);
     }
 }

@@ -5,3 +5,9 @@ swagger:
   base-package: com.example
   base-path: /**
   exclude-path: /error, /ops/**
+
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
