@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Validated
 @RestController
@@ -31,5 +32,10 @@ public class UserController extends BaseController {
         System.out.println(form);
         System.out.println(form.getDate().toLocaleString());
         return Result.success(form);
+    }
+
+    @GetMapping("info")
+    public Result test(@NotNull(message = "ID不能为空") Integer id) {
+        return Result.success(id);
     }
 }
