@@ -4,11 +4,25 @@ import com.example.common.Result;
 import com.example.exception.BizException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import javax.validation.ConstraintViolationException;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler
+    public Result handler(HttpRequestMethodNotSupportedException e) {
+        return Result.failure("请求方法'" + e.getMethod() + "'不支持", e.getMessage());
+    }
+
+    @ExceptionHandler
+    public Result handler(ConstraintViolationException e) {
+        String message = e.getMessage().split(": ")[1];
+        return Result.failure(message, e.getMessage());
+    }
 
     @ExceptionHandler
     public Result handler(BindException e) {

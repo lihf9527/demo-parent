@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @ApiModel
-public abstract class PageForm {
+public class PageForm {
     @NotNull(message = "查询页码不能为空")
     @Min(message = "查询页码不能小于1", value = 1)
     @ApiModelProperty("查询页码")
