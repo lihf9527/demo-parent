@@ -1,13 +1,13 @@
-swagger:
-  enabled: true
-  title: demo-swagger
-  version: 0.0.1-SNAPSHOT
-  base-package: com.example
-  base-path: /**
-  exclude-path: /error, /ops/**
+#swagger:
+#  enabled: true
+#  title: demo-swagger
+#  version: 0.0.1-SNAPSHOT
+#  base-package: com.example
+#  base-path: /**
+#  exclude-path: /error, /ops/**
 
 spring:
   mvc:
     throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false
+#  resources:
+#    add-mappings: false
